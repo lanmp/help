@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="gb2312"?>
-<channel base="http://help.8086.me/weixin/update/" main="wxyx.exe">
+<channel base="http://wxyx-update.qiniudn.com/" main="wxyx.exe">
 	<item>
 		<file>wxyx.exe</file>
 		<version>3.7.10.30</version>
-		<md5>85473527c1c7ba54d07c5e0ff7548a50</md5>
+		<md5>ede1e3383f0d2ba107229192ff2aa2ad</md5>
 	</item>
 	<description>增加改备注功能</description>
 </channel>
