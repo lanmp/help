@@ -1,78 +1,240 @@
-<!DOCTYPE html>  
-<html>
-
+<!DOCTYPE html>
+<html lang="zh-Hans" class="no-js">
 <head>
-	<meta charset="utf-8">
-	<title>在线升级你的浏览器</title>
-	<link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8">
+    <title>升级你的浏览器</title>
+    <meta name="description" content="为开发者节约时间的工具。它可以检测过时的浏览器并建议用户将其升级至新版本。">
+    <meta name="author" content="test">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Styles -->
+    <link rel="stylesheet" href="public/scripts/fonts.css">
+    <link rel="stylesheet" href="public/scripts/updateBrowser.min.css">
+    <link rel="stylesheet" href="public/scripts/mobile.min.css">
+
+
+    <!--[if lte IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <link rel="stylesheet" type="text/css" href="public/scripts/ie9-and-down.min.css">
+    <![endif]-->
+
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" type="text/css" href="public/scripts/ie8-and-down.min.css">
+    <![endif]-->
+
+    <script src="public/scripts/modernizr-2.6.2.min.js"></script>
+    <noscript>
+        <style type="text/css">
+            .menu, .newBrowser{display: none;}
+            .disabledJS{display: block;}
+            .c_browsers.hideBrowsers{opacity: 1;}
+            .browser .statistic, .browser .download{display: block; opacity: 0; margin-left: 0; left: 0; width: 100%;}
+            .browser .download a{ max-width: 210px; width: 80%;}
+            .browser:hover .statistic, .browser:hover .download{opacity: 1;}
+        </style>
+    </noscript>
+
 </head>
+<body class="noajax home">
 
-<body>
-<!--
-	<div id="i18n-alert">
-		<p>Browse Happy is also available in English. <a href="/?locale=en">Click here to change the language to English</a>.</p>
-	</div>-->
-	<div id="body-wrap">
+    <div class="menu"><a data-effect="effect" class="btnCloseNav">关闭导航<span class="l1"></span><span class="l2"></span><span class="l3"></span></a></div>
+    <div id="container" class="container effect">
+        <nav class="main_menu effect" role="navigation">
+            <span class="close"></span>
+            <ul>
+                <li class="lang-picker">
+                    <a href="#">中文<span class="lang-arrow"></span></a>
+                    <ul><li><a href="update_en.html">english</a></li></ul>
+                </li>
+                <li><a class="btnAjax  active" href="/" data-title="" data-url="">主页</a></li>
+                <li><a class="btnAjax " href="https://github.com/lanmp/help" data-title="项目" data-url="/project">项目</a></li>
+                <li><a class="btnAjax " href="#" data-title="如何使用" data-url="/how">如何使用</a></li>
+                <li><a href="#" rel="external" data-track="Faqs"><span>常见问题</span></a></li>
+                <li><a href="https://github.com/lanmp/help" rel="external" data-track="Github"><span>GitHub 页面</span></a></li>
+				<li><a href="http://8086.me/" rel="external" data-track="风轻云"><span>风轻云</span></a></li>
+            </ul>
+        </nav>
 
-	<header>
-		<hgroup class="wrap">
-			<h1>Update <em>Browser</em></h1>
-		</hgroup>
-	</header>
-		<div id="main">
-		<ul id="browserlist" class="wrap">
-			<li id="chrome">
-				<a href="http://www.google.com/chrome" title="Google Chrome">
-					<div class="icon"></div>
-					<h2>Google Chrome</h2>
-					<p class="info">&#8220;Google 全新推出的高速浏览器。&#8221;</p>
-					<p class="version">最新版本：<strong>38.0</strong></p>
-				</a>
-			</li><!-- #chrome -->
-			<li id="firefox">
-				<a href="http://www.firefox.com/" title="Mozilla Firefox">
-					<div class="icon"></div>
-					<h2>Mozilla Firefox</h2>
-					<p class="info">&#8220;Firefox 注重您的信息安全。汇聚各种全新特性，给你更好的上网体验！&#8221;</p>
-					<p class="version">最新版本：<strong>32.0</strong></p>
-				</a>
-			</li><!-- #firefox -->
-			<li id="safari">
-				<a href="http://www.apple.com/safari/" title="Apple Safari">
-					<div class="icon"></div>
-					<h2>Safari</h2>
-					<p class="info">&#8220;Safari 是苹果公司充满创新设计的产品，可用于 Mac 和 Windows。&#8221;</p>
-					<p class="version">最新版本：<strong>7.1</strong></p>
-				</a>
-							</li><!-- #safari -->
-			<li id="opera">
-				<a href="http://www.opera.com/" title="Opera">
-					<div class="icon"></div>
-					<h2>Opera</h2>
-					<p class="info">&#8220;地球上最快的浏览器。安全。强大。易用。免费。&#8221;</p>
-					<p class="version">最新版本：<strong>24.0</strong></p>
-				</a>
-			</li><!-- #opera -->
-			<li id="ie">
-				<a href="http://windows.microsoft.com/ie" title="Microsoft Internet Explorer">
-					<div class="icon"></div>
-					<h2>Internet Explorer</h2>
-					<p class="info">&#8220;来自微软公司的免费浏览器。全新特性助您控制个人隐私。&#8221;</p>
-					<p class="version">最新版本：<strong>11.0</strong></p>
-				</a>
-			</li><!-- #ie -->
-		</ul><!-- #browserlist -->
-	</div><!-- #main -->
+<div class="pusher">
+    <!-- LOAD CONTENT -->
+    <div class="loadContent current">
+        
 
-	<footer>
-		<div class="wrap">
-			<section id="about">
-				<h2>为什么要升级浏览器？</h2>
-				<p>使用老旧浏览器会对您的计算机安全造成威胁。最新浏览器带来更舒适的网页体验。</p>
-			</section><!-- #about -->
-		</div>
-	</footer>
 
-</div><!-- #body-wrap -->
-</body>
+<div id="content" class="home">
+
+    <div id="preload" aria-hidden="true">
+        <img src="public/imgs/browsers-bg.png" alt="">
+        <img src="public/imgs/operatingsystems-bg.png" alt="">
+    </div>
+
+
+    <div class="inner">
+
+        <!--  HEADER  -->
+        <header class="title" role="banner">
+            <div class="browserVersion newBrowser">
+                <h1>升级浏览器</h1>
+                <p>为了更佳的浏览体验，将您的浏览器保持最新。在这里您可以获得最新的版本。</p>
+            </div>
+            <div class="browserVersion disabledJS">
+                <h1>升级浏览器</h1>
+                <p>您的浏览器已禁用 Javascript，启用它获得更好的体验。</p>
+            </div>
+            <div class="browserVersion ifMobile">
+                <h1>升级浏览器</h1>
+                <p>这是为桌面用户准备的工具，<br>但您可以安心在这里浏览</p>
+            </div>
+        <!-- end HEADER  -->
+        </header>
+
+
+
+
+        <!-- SECTION -->
+        <!-- DATA SOURCE:
+        Browser Version: http://caniuse.com/usage_table.php
+        Browser Statistics: http://gs.statcounter.com/
+        -->
+        <section class="c_browsers sorted kwicks kwicks-horizontal hideBrowsers">
+
+            <!-- BROWSER - Chrome -->
+            <div id="chrome" class="browser" rel="">
+                <h3 class="statistic"><span>46.5%</span> 的人们在使用 <br>这款浏览器</h3>
+                <div class="center">
+                    <h2><span></span> GOOGLE CHROME</h2>
+                    <div class="download">
+                        <a href="http://www.google.com/chrome" target="_blank" class="browserlink" data-track="Google Chrome">下载</a>
+                        <h4>版本 <span>40</span></h4>
+                    </div>
+                </div>
+                <div class="available">
+                    <h4>在以下操作系统可用 </h4>
+                    <ul>
+                        <li class="windows"><span>Windows</span></li>
+                        <li class="mac"><span>Mac OS</span></li>
+                        <li class="linux"><span>Linux</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- BROWSER - Firefox -->
+            <div id="firefox" class="browser" rel="">
+                <h3 class="statistic"><span>16.5%</span> 的人们在使用 <br>这款浏览器</h3>
+                <div class="center">
+                    <h2><span></span> MOZILLA FIREFOX</h2>
+                    <div class="download">
+                        <a href="http://www.mozilla.org/firefox/new/" target="_blank" class="browserlink" data-track="Mozilla Firefox">下载</a>
+                        <h4>版本 <span>35</span></h4>
+                    </div>
+                </div>
+                <div class="available">
+                    <h4>在以下操作系统可用 </h4>
+                    <ul>
+                        <li class="windows"><span>Windows</span></li>
+                        <li class="mac"><span>Mac OS</span></li>
+                        <li class="linux"><span>Linux</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- BROWSER - Internet Explorer -->
+            <div id="internetExplorer" class="browser" rel="">
+                <h3 class="statistic"><span>21.6%</span> 的人们在使用 <br>这款浏览器</h3>
+                <div class="center">
+                    <h2><span></span> INTERNET EXPLORER</h2>
+                    <div class="download">
+                        <a href="http://ie.microsoft.com/" target="_blank" class="browserlink" data-track="Internet Explorer">下载</a>
+                        <h4>版本 <span>11</span></h4>
+                    </div>
+                </div>
+                <div class="available">
+                    <h4>在以下操作系统可用 </h4>
+                    <ul class="single">
+                        <li class="windows"><span>Windows</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- BROWSER - Safari -->
+            <div id="safari" class="browser" rel="">
+                <h3 class="statistic"><span>10.3%</span> 的人们在使用 <br>这款浏览器</h3>
+                <div class="center">
+                    <h2><span></span> APPLE SAFARI</h2>
+                    <div class="download">
+                        <a href="http://support.apple.com/downloads/#safari" target="_blank" class="browserlink" data-track="Apple Safari">下载</a>
+                        <h4>版本 <span>8</span></h4>
+                    </div>
+                </div>
+                <div class="available">
+                    <h4>在以下操作系统可用 </h4>
+                    <ul class="single">
+                        <li class="mac"><span>Mac OS</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- BROWSER - Opera -->
+            <div id="opera" class="browser" rel="">
+                <h3 class="statistic"><span>1.5%</span> 的人们在使用 <br>这款浏览器</h3>
+                <div class="center">
+                    <h2><span></span> OPERA</h2>
+                    <div class="download">
+                        <a href="http://www.opera.com/download" target="_blank" data-track="Opera" class="browserlink">下载</a>
+                        <h4>版本 <span>26</span></h4>
+                    </div>
+                </div>
+                <div class="available">
+                    <h4>在以下操作系统可用 </h4>
+                    <ul>
+                        <li class="windows"><span>Windows</span></li>
+                        <li class="mac"><span>Mac OS</span></li>
+                        <li class="linux"><span>Linux</span></li>
+                    </ul>
+                </div>
+            </div>
+        <!-- end SECTION -->
+        </section>
+
+        <!-- <section class="c_browsers sorted kwicks kwicks-horizontal"></section> -->
+
+    <!-- end .inner -->
+    </div>
+<!-- end #content -->
+</div>    </div>
+    <!-- end .loadContent -->
+
+
+    <div class="loadContent next">
+    </div>
+    <!-- end .loadContent -->
+
+<!-- end .pusher -->
+</div>
+
+
+    <!-- end .container -->
+    </div>
+
+
+    <!-- KEEP CALM MESSAGE -->
+    <div class="keep_calm">
+        <p class="center">冷静 <br><span class="xs">这是为</span>桌面<br>用户提供的<span class="xs">不是</span>为手机用户提供的。</p>
+        <p class="close">关闭</p>
+    </div>
+
+    
+    <!-- ============= SCRIPTS ============= -->
+    <script src="public/scripts/jquery-1.10.1.min.js"></script>
+    <script src="public/scripts/updateBrowser.min.js"></script>
+
+    <!--[if !IE]><!-->
+      <script type="text/javascript" src="public/scripts/main.min.js"></script>
+    <!--<![endif]-->
+
+    <!--[if gte IE 9]>
+      <script type="text/javascript" src="public/scripts/main.min.js"></script>
+    <![endif]-->
+
+    </body>
 </html>
